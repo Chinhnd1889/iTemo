@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15DD1EBD-31CB-4CEA-A25F-A7A0DF0CDD08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iTemo.Data</RootNamespace>
+    <AssemblyName>iTemo.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Category.cs">
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityExtensions\CategoryExtension.cs" />
+    <Compile Include="EntityExtensions\RoleExtension.cs" />
+    <Compile Include="EntityExtensions\UserExtension.cs" />
+    <Compile Include="EntityExtensions\UserRoleExtension.cs" />
+    <Compile Include="IEntitiesContext.cs" />
+    <Compile Include="Infrastructure\IiTemoUnitOfWork.cs" />
+    <Compile Include="EntityExtensions\ProductExtension.cs" />
+    <Compile Include="Infrastructure\iTemoUnitOfWork.cs" />
+    <Compile Include="iTemoContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iTemoContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iTemoContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iTemoContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iTemoContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="iTemoContextExtension.cs" />
+    <Compile Include="Metadata\CategoryMetadata.cs" />
+    <Compile Include="Metadata\ProductMetadata.cs" />
+    <Compile Include="Metadata\RoleMetadata.cs" />
+    <Compile Include="Metadata\UserMetadata.cs" />
+    <Compile Include="Metadata\UserRoleMetadata.cs" />
+    <Compile Include="Product.cs">
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Implementation\CategoryRepository.cs" />
+    <Compile Include="Repository\Implementation\EntityRepository.cs" />
+    <Compile Include="Repository\Implementation\ProductRepository.cs" />
+    <Compile Include="Repository\Implementation\RoleRepository.cs" />
+    <Compile Include="Repository\Implementation\UserRepository.cs" />
+    <Compile Include="Repository\Implementation\UserRoleRepository.cs" />
+    <Compile Include="Repository\Interface\ICategoryRepository.cs" />
+    <Compile Include="Repository\Interface\IEntityBase.cs" />
+    <Compile Include="Repository\Interface\IEntityRepository.cs" />
+    <Compile Include="Repository\Interface\IProductRepository.cs" />
+    <Compile Include="Repository\Interface\IRoleRepository.cs" />
+    <Compile Include="Repository\Interface\IUserRepository.cs" />
+    <Compile Include="Repository\Interface\IUserRoleRepository.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>iTemoContext.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="iTemoContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>iTemoContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="iTemoContext.edmx.diagram">
+      <DependentUpon>iTemoContext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iTemoContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iTemoContext.edmx</DependentUpon>
+      <LastGenOutput>iTemoContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="iTemoContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iTemoContext.edmx</DependentUpon>
+      <LastGenOutput>iTemoContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iTemo.Core\iTemo.Core.csproj">
+      <Project>{1bfad743-8d71-43dc-a362-09b0b887ae6a}</Project>
+      <Name>iTemo.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

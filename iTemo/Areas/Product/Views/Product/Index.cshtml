@@ -1,0 +1,77 @@
+﻿@using iTemo.jsGrid
+@model iTemo.Areas.Product.Models.ProductSearchViewModel
+
+@{
+    ViewBag.Title = "Product";
+}
+
+@Scripts.Render("~/Public/js/module/product/product.js?v=20180521225400")
+
+<script>
+    $(document).ready(() => {
+        productModule.urlCreateProduct = "@Url.Action("CreateProduct", "Product", new { Area = "Product" })";
+        productModule.urlDetailProduct = "@Url.Action("DetailProduct", "Product", new { Area = "Product" })";
+    });
+</script>
+
+<h2>Danh sách sản phẩm</h2>
+<div class="row">
+    <div class="col col-md-4">
+        <input type="text" class="form-control it-textbox" placeholder="Tìm kiếm..." name="txtKeyword" id="txtKeyword" onkeypress="productModule.search(event)" />
+    </div>
+    <button class="it-btn" onclick="productModule.search(event)"><i class="fas fa-search"></i></button>
+    <div class="col col-md-4 it-viewSelection">
+        <select class="form-control" id="ViewNameListItems">
+            <option>Sản phẩm bạn tạo</option>
+            <option>Sản phẩm đã xóa</option>
+            <option>Tất cả sản phẩm</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="it-btn" onclick="productModule.createProduct()"><i class="fas fa-plus"></i></button>
+        <button class="it-btn it-btn-danger" onclick="productModule.deleteProduct()"><i class="fas fa-trash-alt"></i></button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.Grid(Model.ProductGrid)
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#txtKeyword").blur();
+
+        var params = urlHelper.getUrlParams();
+
+        if (params.ViewName === undefined || params.ViewName === "undefined") {
+            params.ViewName = $("#ViewNameListItems option:selected").text();
+        }
+
+        var value = 1;
+        if (params.ViewName === "Sản phẩm bạn tạo") {
+            value = 1;
+        } else if (params.ViewName === "Sản phẩm đã xóa") {
+            value = 2;
+        } else if (params.ViewName === "Tất cả sản phẩm") {
+            value = 3;
+        }
+
+        $("#ViewNameListItems").val(value);
+        $("#txtKeyword").val(params.Keyword);
+
+        $("#ViewNameListItems").change(function() {
+            var selectedText = $(this).find("option:selected").text();
+            $("#txtKeyword").val("");
+            var request = {
+                ViewName: selectedText
+            };
+            gridHelper.searchObject("gridProductListing", request);
+        });
+    });
+</script>

@@ -1,0 +1,133 @@
+﻿a {
+    text-decoration: none !important;
+}
+
+.form-control {
+    -ms-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+select:focus,
+.uneditable-input:focus {
+    border-color: #e74545bf !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #e74545bf !important;
+    outline: 0 none !important;
+}
+
+
+/*
+    Custom jsGrid
+*/
+
+.jsgrid-pager {
+    text-align: right;
+}
+
+.jsgrid-grid-header {
+    overflow-y: auto !important;
+}
+
+.jsgrid-grid-body {
+    overflow-y: auto !important;
+}
+
+.jsgrid-pager-page {
+    padding: .2em .4em !important;
+}
+
+.jsgrid-pager-nav-button {
+    padding: 0px !important;
+}
+
+.jsgrid-pager-page.jsgrid-pager-current-page {
+    color: #e74545bf !important;
+}
+
+.jsgrid-pager-page a, .jsgrid-pager-nav-button a {
+    padding: 0 7px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.jsgrid-pager-page a:hover, .jsgrid-pager-nav-button a:hover {
+    background: #e74545bf;
+    color: white;
+}
+
+.jsgrid-header-row > .jsgrid-header-cell {
+    background: #e74545bf !important;
+    color: #f5eded !important;
+}
+
+.jsgrid-header-sort-desc:before {
+    border-color: #ffffff transparent transparent transparent !important;
+}
+
+.jsgrid-header-sort-asc:before {
+    border-color: transparent transparent #ffffff transparent !important;
+}
+
+.jsgrid-header-scrollbar::-webkit-scrollbar-track {
+    background: #e74545bf !important;
+}
+
+.jsgrid-grid-header.jsgrid-header-scrollbar {
+    border: none !important;
+}
+
+.jsgrid-header-row > .jsgrid-header-cell {
+    border: none !important;
+}
+
+/*
+    End custom jsGrid
+*/
+
+
+.it-btn {
+    border: none;
+    -ms-border-radius: 50px;
+    border-radius: 50px;
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    outline: none;
+}
+
+.it-btn.it-btn-danger .fas {
+    color: #e6261f;
+}
+
+.it-btn:hover {
+    background: rgba(232, 232, 232, 0.84);
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.it-textbox {
+    -ms-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+
+.it-viewSelection {
+    float: right !important;
+}

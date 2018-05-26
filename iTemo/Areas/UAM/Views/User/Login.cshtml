@@ -1,0 +1,32 @@
+﻿@using iTemo.Core.CustomControls.CustomControls
+@model iTemo.Areas.UAM.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<h2>Đăng nhập trang hệ thống</h2>
+
+<div class="row">
+    <div class="col col-md-2">
+        @Html.ExtLabelFor(r => r.UserName)
+    </div>
+    <div class="col col-md-4">
+        @Html.ExtTextBoxFor(r => r.UserName)
+    </div>
+</div>
+<div class="row">
+    <div class="col col-md-2">
+        @Html.ExtLabelFor(r => r.Password)
+    </div>
+    <div class="col col-md-4">
+        @Html.ExtTextBoxFor(r => r.Password)
+    </div>
+</div>
+<div class="row">
+    <div class="col col-md-2">
+    </div>
+    <div class="col col-md-4">
+        <button class="btn btn-primary">Đăng nhập</button>
+    </div>
+</div>

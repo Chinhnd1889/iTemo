@@ -1,0 +1,24 @@
+﻿@using iTemo.Core.CustomControls.CustomControls
+@model iTemo.Areas.Product.Models.ProductEditWebModel 
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+@Html.TextBoxFor(r => r.Name, null, new { @class = "form-control" })
+
+@using (Html.ExtModalFor("modalCreate", ExtModal.ModalSize.Medium, "Tạo sản phẩm"))
+{
+    using (@Html.ExtModalBodyFor("text-center"))
+    {
+        <p>abc</p>
+    }
+    using (@Html.ExtModalFooterFor("text-center"))
+    {
+        <button class="btn btn-teal" type="button" data-dismiss="modal" onclick="">Yes</button>
+        <button class="btn btn-teal" type="button" data-dismiss="modal">No</button>
+    }
+}
+
